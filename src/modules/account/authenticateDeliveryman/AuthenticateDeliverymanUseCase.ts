@@ -12,7 +12,7 @@ export class AuthenticateDeliverymanUseCase {
   async execute({ username, password }: IAuthenticateDeliveryman) {
 
     // Verify if username is registered
-    const deliveryman = await prisma.clients.findFirst({
+    const deliveryman = await prisma.deliveryman.findFirst({
       where: {
         username
       },
@@ -28,7 +28,7 @@ export class AuthenticateDeliverymanUseCase {
       throw new Error("username or password invalid!");
     }
     // Token generation
-    const token = sign({username}, "898ce53049638f3ff86c4b534cf16078", {
+    const token = sign({username}, "898ce53049638f3gg86c4b534cf16078", {
       subject: deliveryman.id,
       expiresIn: "1d"
     });
