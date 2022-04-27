@@ -6,7 +6,7 @@ interface IPayloadDeliveryman {
   id_deliveryman: string;
 }
 
-export class UpdateDeliverymaUseCase {
+export class UpdateDeliverymanUseCase {
   async execute({ id_delivery, id_deliveryman }: IPayloadDeliveryman) {
     const result = await prisma.deliveries.update({
       where: {
